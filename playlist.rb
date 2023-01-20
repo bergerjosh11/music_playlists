@@ -41,7 +41,7 @@ class Playlist
     updates['add_playlists'].each do |y|
       music_player['playlists'].push({id: playlist_ids.push(playlist_ids.last + 1).to_s, owner_id: y['owner_id'], song_ids: y['song_id']})
     end
-    changes['remove_playlist'].each do |x|
+    changes['remove_playlists'].each do |x|
       music_player['playlists'] = music_player['playlists'].reject{|y| y['id'] == x}
     end
   end
