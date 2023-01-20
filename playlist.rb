@@ -38,7 +38,7 @@ class Playlist
       music_player['playlists'].select { |y| y['id'] == x['playlist_id'] }.first['song_ids'].push(x['song_id'])
     end
     playlist_ids = music_player['playlists'].map { |x| x["id"].to_i }.sort_by(&:id)
-    updates['added_playlists'].each do |y|
+    updates['add_playlists'].each do |y|
       music_player['playlists'].push({id: playlist_ids.push(playlist_ids.last + 1).to_s, owner_id: y['owner_id'], song_ids: y['song_id']})
     end
     changes['remove_playlist_ids'].each do |x|
